@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+using yrno;
 
 namespace atnet_service
 {
@@ -16,8 +18,10 @@ namespace atnet_service
         {
             if (Environment.UserInteractive)
             {
-                SendGraph sg = new SendGraph();
-                sg.NewMessage();
+                //SendGraph sg = new SendGraph();
+                //sg.NewMessage();
+                Forecast fr = new Forecast(new HttpClient());
+                List<ForecastRecordModel> records = fr.Get();
             }
             else
             {
