@@ -22,11 +22,13 @@ namespace yrno
             try
             {
                 // ziskame XML data
-                var response = _client.GetAsync($"https://www.yr.no/place/Czech_Republic/Zl%C3%ADn/Vizovice/forecast.xml");
-                var respXml = response.Result.Content.ReadAsStringAsync().Result;
+                //var response = _client.GetAsync($"https://www.yr.no/place/Czech_Republic/Zl%C3%ADn/Vizovice/forecast.xml");
+                //var respXml = response.Result.Content.ReadAsStringAsync().Result;
+                //System.IO.File.WriteAllText(@"D:\foreca.xml", respXml);
 
                 XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.LoadXml(respXml);
+                //xmlDoc.LoadXml(respXml);
+                xmlDoc.Load(@"D:\foreca.xml");
                 string xpath = "weatherdata/forecast/tabular/time";
                 var nodes = xmlDoc.SelectNodes(xpath);
 

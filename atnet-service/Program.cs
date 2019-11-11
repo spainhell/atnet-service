@@ -20,8 +20,12 @@ namespace atnet_service
             {
                 //SendGraph sg = new SendGraph();
                 //sg.NewMessage();
+                
                 Forecast fr = new Forecast(new HttpClient());
                 List<ForecastRecordModel> records = fr.Get();
+
+                Graph g = new Graph(records);
+                g.Save();
             }
             else
             {

@@ -43,9 +43,9 @@ namespace atnet_service
 
         protected static void SetTimer()
         {
-            // Create a timer with a 5s interval
-            aTimer = new System.Timers.Timer(5000);
-            // Hook up the Elapsed event for the timer. 
+            // časovač na 3600 vteřin => 1 hodina
+            aTimer = new Timer(60 * 60 * 1000);
+            // událost zavolá metodu OnTimedEvent 
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;
             aTimer.Enabled = true;
