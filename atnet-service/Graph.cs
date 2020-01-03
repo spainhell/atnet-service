@@ -140,7 +140,7 @@ namespace atnet_service
 
         public void Save()
         {
-            _bmp.Save(@"D:\atnet.png", ImageFormat.Png);
+            _bmp.Save(@".\atnet.jpg", ImageFormat.Jpeg);
         }
 
         ~Graph()

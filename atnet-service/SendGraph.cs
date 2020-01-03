@@ -24,7 +24,7 @@ namespace atnet_service
             //mail.Attachments.Add(new Attachment(@"C:\Users\spanhel\Pictures\2416585_0.jpg"));
 
             // PŘÍLOHA V JPEG
-            Stream sr = new FileStream(@"C:\Users\spanhel\Pictures\2416585_0.jpg", FileMode.Open, FileAccess.Read);
+            Stream sr = new FileStream(@".\atnet.jpg", FileMode.Open, FileAccess.Read);
             mail.Attachments.Add(new Attachment(sr, "image.jpg", MediaTypeNames.Image.Jpeg));
 
             // TĚLO
