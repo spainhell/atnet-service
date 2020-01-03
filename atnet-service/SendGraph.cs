@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -19,10 +20,7 @@ namespace atnet_service
                 new MailAddress("spanhel@spanhel.eu", "Jan Špaňhel")
             );
             mail.Subject = "Předmět zprávy";
-            //mail.Body = "Toto je tělo";
-
-            //mail.Attachments.Add(new Attachment(@"C:\Users\spanhel\Pictures\2416585_0.jpg"));
-
+        
             // PŘÍLOHA V JPEG
             Stream sr = new FileStream(@".\atnet.jpg", FileMode.Open, FileAccess.Read);
             mail.Attachments.Add(new Attachment(sr, "image.jpg", MediaTypeNames.Image.Jpeg));
@@ -48,7 +46,7 @@ namespace atnet_service
             }
             catch(Exception ex)
             {
-
+                Trace.WriteLine($"Doslo k chybe pri odesilani zpravy {ex.Message}");
             }
             sr.Dispose();
             client.Dispose();
